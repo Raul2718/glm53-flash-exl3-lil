@@ -1,0 +1,161 @@
+Local Inference Lab Attribution License, Version 1.0
+SPDX short identifier: LicenseRef-LIL-Attribution-1.0
+
+An open source license with an attribution requirement.
+
+This license is derived from the MIT License. It grants the same broad
+permissions, and adds Section 2 (Attribution) as an express CONDITION of the
+grant. It is NOT the MIT License and must not be described as the MIT License.
+
+
+0. TERMS SUPPLIED BY THE LICENSOR
+
+The following values are supplied by the Licensor for each licensed Work and
+are referred to by the defined terms below. A Work licensed under this license
+must state them.
+
+    Author:        Local Inference Lab, Inc.
+    Project Home:  https://local-inference-lab.ai/
+    Copyright:     Copyright (c) 2026 Local Inference Lab, Inc.
+
+"Author" means the person or entity named above, and any additional authors
+identified in the Work's copyright notices. "Project Home" means the URL named
+above. "Licensor" means the copyright holder named above. "Upstream Source"
+means the Hugging Face model repository or the GitHub repository from which a
+recipient obtained the Work.
+
+This license instrument was prepared by Brandon M. Music, General Counsel,
+Local Inference Lab, Inc. This paragraph records authorship of the license text
+itself. It is not a term of the license, and it imposes no condition on any
+recipient of the Work.
+
+
+1. GRANT
+
+Permission is hereby granted, free of charge, to any person or entity obtaining
+a copy of this software, model, model weights, configuration, documentation, or
+associated files (the "Work"), to deal in the Work without restriction,
+including without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Work, and to permit persons to
+whom the Work is furnished to do so, subject to the conditions in Sections 2, 3,
+and 4.
+
+The rights granted in this Section 1 extend to Derivative Works, including
+without limitation fine-tunes, quantizations, re-encodings, distillations,
+merges, adapters, format conversions, and ports of the Work.
+
+
+2. ATTRIBUTION (CONDITION OF THE GRANT)
+
+The permissions granted in Section 1 are conditioned on satisfying ALL of
+Sections 2.1 through 2.4. These are conditions of the license grant and not
+merely independent covenants. Distribution of the Work that does not satisfy
+them is outside the scope of the license granted.
+
+2.1  Notice retention. The above copyright notice, this permission notice, and
+     the entirety of this license shall be included in all copies or substantial
+     portions of the Work.
+
+2.2  Required attribution. Every distribution, publication, deployment, or
+     public presentation of the Work or any Derivative Work must display, in a
+     location described in Section 2.3, all three of the following:
+
+     (a) the name of the Author;
+
+     (b) a working HYPERLINK to the Upstream Source, presented as a clickable
+         link where the medium supports hyperlinks, and as a complete
+         written-out URL where it does not; and
+
+     (c) a working HYPERLINK to the Project Home, presented as a clickable link
+         where the medium supports hyperlinks, and as a complete written-out URL
+         where it does not.
+
+2.3  Placement. The attribution required by Section 2.2 must appear in at least
+     one location in each category that applies to the distribution:
+
+     (a) Model repositories: in the model card (README.md), within the first
+         screen of rendered content, and not solely inside a collapsed,
+         footnoted, or externally linked section.
+
+     (b) Source repositories: in the top-level README, and in any NOTICE or
+         ATTRIBUTION file if one is present.
+
+     (c) Applications, services, and APIs that expose the Work to users: in
+         user-accessible documentation, an "About", "Credits", "Licenses", or
+         equivalent screen, or an equivalent standard attribution surface.
+
+     The attribution must be legible, in the same language as the surrounding
+     material, and must not be obscured, minimized, or rendered non-functional.
+     A hyperlink that does not resolve does not satisfy Section 2.2.
+
+2.4  No removal. The attribution required by this Section may not be removed,
+     replaced, or relocated out of compliance by any downstream recipient, and
+     applies to every tier of redistribution.
+
+
+3. NO ENDORSEMENT
+
+Nothing in this license grants any right to use the names, trademarks, service
+marks, or logos of the Author or the Licensor except as required by Section 2 to
+give attribution. Attribution given under Section 2 does not imply endorsement,
+sponsorship, certification, or verification of any Derivative Work, deployment,
+evaluation, or published result by the Author or the Licensor.
+
+
+4. TERMINATION AND ENFORCEMENT
+
+4.1  Automatic termination. If you fail to comply with any condition in Section
+     2, the rights granted to you under Section 1 terminate automatically, as of
+     the date of first non-compliance, without notice.
+
+4.2  Effect of termination. Because this license is the sole authorization to
+     use, reproduce, modify, or distribute the Work, any continued use,
+     reproduction, modification, public display, or distribution of the Work or
+     a Derivative Work after termination is unlicensed, and constitutes
+     copyright infringement under 17 U.S.C. § 501 and applicable law outside the
+     United States.
+
+4.3  Platform enforcement. Distribution of the Work or a Derivative Work in
+     breach of Section 2 is an unlicensed distribution of copyrighted material.
+     Such material is therefore subject to notice-and-takedown procedures on the
+     platforms where it is hosted, including without limitation:
+
+     (a) GitHub, under the GitHub Terms of Service, the GitHub Acceptable Use
+         Policies, and the GitHub DMCA Takedown Policy; and
+
+     (b) Hugging Face, under the Hugging Face Terms of Service, Content
+         Policy, and its designated copyright and DMCA reporting process;
+
+     and the Licensor may submit a takedown notice to any such platform, or to
+     any other host, registrar, or distributor, seeking removal or disabling of
+     access to the infringing content. Determination of any such notice rests
+     with the platform.
+
+4.4  Reinstatement. Rights terminated under Section 4.1 are reinstated
+     automatically and retroactively upon the earlier of (a) full cure of the
+     non-compliance within thirty (30) days of the recipient becoming aware of
+     it, whether by notice from the Licensor or otherwise, or (b) express
+     written reinstatement by the Licensor. This Section 4.4 does not apply to
+     any recipient who has previously received notice of non-compliance with
+     respect to the same Work and failed to cure it.
+
+4.5  Reservation. The Licensor's remedies under this license are cumulative and
+     in addition to any other remedy available at law or in equity. No failure
+     or delay in enforcing any provision operates as a waiver of it.
+
+
+5. WARRANTY DISCLAIMER AND LIMITATION OF LIABILITY
+
+THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE, ACCURACY, AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
+OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN
+CONNECTION WITH THE WORK OR THE USE OR OTHER DEALINGS IN THE WORK.
+
+
+6. SEVERABILITY
+
+If any provision of this license is held unenforceable, that provision shall be
+enforced to the maximum extent permissible and the remaining provisions shall
+remain in full force and effect.

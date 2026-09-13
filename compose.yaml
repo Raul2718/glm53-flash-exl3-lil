@@ -1,0 +1,116 @@
+services:
+  glm53:
+    build: .
+    image: ${IMAGE:-glm53-flash-exl3-lil:jovian-r1}
+    container_name: ${CONTAINER_NAME:-glm53-flash-exl3-lil}
+    init: true
+    ipc: host
+    shm_size: ${SHM_SIZE:-32gb}
+
+    ulimits:
+      memlock: -1
+      nofile: 1048576
+      stack: 67108864
+
+    ports:
+      - "127.0.0.1:${PORT:-8118}:8000"
+
+    volumes:
+      - ${GLM53_MODEL_PATH:?Set GLM53_MODEL_PATH to the absolute checkpoint path}:/model:ro
+      - ${GLM53_CACHE_PATH:-./cache}:/cache:rw
+      - ${GLM53_CACHE_PATH:-./cache}:/root/.cache:rw
+      - ./chat_template.jinja:/opt/glm53/chat_template.multimodal.jinja:ro
+
+    environment:
+      VLLM_ENGINE_READY_TIMEOUT_S: "3600"
+      VLLM_GLM53_MTP_DRAFT_HEAD: ${VLLM_GLM53_MTP_DRAFT_HEAD:-bf16}
+      VLLM_EXL3_PREFILL_BLOCK_M: ${VLLM_EXL3_PREFILL_BLOCK_M:-64}
+      VLLM_EXL3_PREFILL_TRELLIS: "1"
+      VLLM_USE_B12X_DCP_A2A: "1"
+      VLLM_ENABLE_PCIE_ALLREDUCE: "1"
+      VLLM_PCIE_ALLREDUCE_BACKEND: b12x
+      OMP_NUM_THREADS: ${OMP_NUM_THREADS:-2}
+      NCCL_IB_DISABLE: "1"
+      NCCL_P2P_LEVEL: "4"
+
+    command:
+      - serve
+      - /model
+      - --served-model-name
+      - ${SERVED_MODEL_NAME:-GLM-5.3-Flash-EXL3-4bpw}
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8000"
+      - --tensor-parallel-size
+      - "2"
+      - --enable-expert-parallel
+      - --decode-context-parallel-size
+      - "2"
+      - --cp-kv-cache-interleave-size
+      - "4"
+      - --dcp-kv-cache-interleave-size
+      - "4"
+      - --dtype
+      - bfloat16
+      - --quantization
+      - exl3
+      - --load-format
+      - safetensors
+      - --moe-backend
+      - b12x
+      - --linear-backend
+      - b12x
+      - --attention-backend
+      - B12X
+      - --kv-cache-dtype
+      - fp8_ds_mla
+      - --block-size
+      - "256"
+      - --mamba-cache-mode
+      - align
+      - --max-model-len
+      - ${MAX_MODEL_LEN:-409600}
+      - --max-num-batched-tokens
+      - ${MAX_NUM_BATCHED_TOKENS:-3072}
+      - --max-num-seqs
+      - ${MAX_NUM_SEQS:-4}
+      - --max-cudagraph-capture-size
+      - "16"
+      - --gpu-memory-utilization
+      - ${GPU_MEMORY_UTILIZATION:-0.95}
+      - --enable-chunked-prefill
+      - --enable-prefix-caching
+      - --enable-prompt-tokens-details
+      - --prefill-compute-share
+      - "0.4"
+      - --generation-config
+      - /model
+      - --reasoning-parser
+      - glm45
+      - --tool-call-parser
+      - glm47
+      - --enable-auto-tool-choice
+      - --no-enable-flashinfer-autotune
+      - --chat-template
+      - /opt/glm53/chat_template.multimodal.jinja
+      - --mm-encoder-attn-backend
+      - TORCH_SDPA
+      - --limit-mm-per-prompt
+      - '{"video":0}'
+      - --prefill-schedule-interval
+      - "1"
+      - --additional-config
+      - '{"glm53_kda_decode_backend":"auto","kda_prefill_backend":"b12x"}'
+      - --compilation-config
+      - '{"cudagraph_mode":"FULL_AND_PIECEWISE","cudagraph_capture_sizes":[1,2,4,8,12,16]}'
+      - --speculative-config
+      - '{"method":"mtp","num_speculative_tokens":3,"draft_sample_method":"probabilistic","rejection_sample_method":"standard","moe_backend":"b12x","attention_backend":"B12X"}'
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["${GLM53_GPU_0:-0}", "${GLM53_GPU_1:-1}"]
+              capabilities: [gpu]
