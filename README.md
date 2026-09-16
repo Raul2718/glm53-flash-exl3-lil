@@ -1,4 +1,4 @@
-# GLM-5.3-Flash EXL3 4bpw on LIL vLLM
+# GLM-5.3-Flash EXL3 4bpw on two RTX PRO 6000 Blackwell GPUs
 
 This repository ports the EXL3 adapter used by [Brandon Music's GLM-5.3-Flash
 TR3 4bpw runtime](https://github.com/brandonmmusic-max/glm-5.3-flash-exl3-4bpw)
